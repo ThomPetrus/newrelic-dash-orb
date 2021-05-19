@@ -94,6 +94,7 @@ workflows:
           requires:
             - orb-tools/publish-dev
       - build
+      - newrelic-test
 
   # This `integration-test_deploy` workflow will only run
   # when the run-integration-tests pipeline parameter is set to true.
