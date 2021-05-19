@@ -58,9 +58,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Testing New Relic CLI presence on image
+          name: Add temp profile with API key
           command:
             newrelic profile add -n neurio_temp --apiKey NRAK-WZ0G01O6CYEWIUNDLI3LA0RIW79 -r US
+      - run:
+          name: Search for application info
+          command:
             newrelic apm application search --accountId 2988639 --name pwrview-stg-live-service
 
 workflows:
