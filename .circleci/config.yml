@@ -50,7 +50,7 @@ jobs:
       - run:
           name: Test Widget Addition
           command:
-            newrelic nerdgraph query "mutation {dashboardAddWidgetsToPage(guid:\"Mjk4ODYzOXxWSVp8REFTSEJPQVJEfDE5OTcwMTk\",widgets:{visualization:{id:\"viz.line\"},title:\"circleci made me\",rawConfiguration:{nrqlQueries:[{accountId:2988639,query:\"SELECT max(\`docker.container.cpuPercent\`) FROM Metric FACET \`docker.ecsTaskDefinitionFamily\` WHERE \`docker.ecsTaskDefinitionFamily\` = 'pwrview-stg-live-servie' SINCE 30 MINUTES AGO TIMESERIES\"} ]}}){errors {typedescription}}}"
+            newrelic nerdgraph query "mutation {dashboardAddWidgetsToPage(guid:\"Mjk4ODYzOXxWSVp8REFTSEJPQVJEfDE5OTcwMTk\",widgets:{visualization:{id:\"viz.line\"},title:\"circleci made me\",rawConfiguration:{nrqlQueries:[{accountId:2988639,query:\"SELECT max(\`docker.container.cpuPercent\`) FROM Metric FACET \`docker.ecsTaskDefinitionFamily\` WHERE \`docker.ecsTaskDefinitionFamily\` = 'pwrview-stg-live-servie' SINCE 30 MINUTES AGO TIMESERIES\"} ]}}){errors {description}}}"
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
