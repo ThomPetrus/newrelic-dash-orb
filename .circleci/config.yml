@@ -34,15 +34,15 @@ jobs:
       # This sample integration test will run as long as the greet command exists. Once you remove the greet command you should remove this line.
       # Push new changes first, before adding new tests to your config.
       - newrelic-dash/greet
-  build-test:
+  build:
     docker:
-      -image: alpine:3.7
+      - image: alpine:3.7
     steps:
-      -run:
-        name: The first step
-        command: |
-          echo 'Hello World'
-          echo 'this is the delivery pipeline'
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
 
 
 workflows:
