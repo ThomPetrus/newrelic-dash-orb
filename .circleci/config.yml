@@ -52,6 +52,15 @@ jobs:
           name: Running in a node container
           command: |
             node -v
+    newrelic-test:
+      docker:
+        - image: newrelic/cli:latest
+      steps:
+        - checkout
+        - run:
+            name: Testing New Relic CLI presence on image
+            command:
+              newrelic -v
 
 
 workflows:
