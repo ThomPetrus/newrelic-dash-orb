@@ -36,7 +36,7 @@ jobs:
       - newrelic-dash/greet
   build:
     docker:
-      - image: alpine:3.7
+      - image: circleci/node:10-browsers
     steps:
       - checkout
       - run:
@@ -48,6 +48,10 @@ jobs:
           name: Code Has Arrived BB
           command: |
             ls -al
+      - run:
+          name: Running in a node container
+          command: |
+            node -v
 
 
 workflows:
