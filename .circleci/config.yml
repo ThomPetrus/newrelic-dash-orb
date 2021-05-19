@@ -17,7 +17,8 @@ parameters:
   dev-orb-version:
     description: >
       The development version of the orb to test.
-      This value is automatically adjusted by the "trigger-integration-tests-workflow" job to correspond with the specific version created by the commit and should not be edited.
+      This value is automatically adjusted by the "trigger-integration-tests-workflow" job to correspond with the specific
+      version created by the commit and should not be edited.
       A "dev:alpha" version must exist for the initial pipeline run.
     type: string
     default: "dev:alpha"
@@ -33,6 +34,16 @@ jobs:
       # This sample integration test will run as long as the greet command exists. Once you remove the greet command you should remove this line.
       # Push new changes first, before adding new tests to your config.
       - newrelic-dash/greet
+  build-test:
+    docker:
+      -image: alpine:3.7
+    steps:
+      -run:
+        name: The first step
+        command: |
+          echo 'Hello World'
+          echo 'this is the delivery pipeline'
+
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
@@ -64,6 +75,7 @@ workflows:
           context: orb-publishing
           requires:
             - orb-tools/publish-dev
+      - build-test
 
   # This `integration-test_deploy` workflow will only run
   # when the run-integration-tests pipeline parameter is set to true.
